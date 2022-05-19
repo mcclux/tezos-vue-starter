@@ -15,7 +15,7 @@
         </div>
         <div class="grid grid-cols-5 grid-flow-col gap-4 my-px">
           <div class="col-span-5 justify-self-end h-3">
-            <button v-show="wallet.address" class="text-xs float-right underline" @click="fillAddressInput()">
+            <button v-show="wallet.address != tezosAddress" class="text-xs float-right underline" @click="fillAddressInput()">
               Here's Yours
             </button>
           </div>
@@ -63,6 +63,14 @@ export default Vue.extend({
     wallet: {
       type: Object,
       required: true
+    },
+    networks: {
+      type: Object,
+      required: true
+    },
+    cnetwork: {
+      type: Object,
+      required: true
     }
   },
   data () {
@@ -77,7 +85,7 @@ export default Vue.extend({
     async queryTzAddress (address:string) {
       this.queryStarted = true
       this.addressBalance = ''
-      const rpcUrl = 'https://mainnet-tezos.giganode.io'
+      const rpcUrl = this.cnetwork.node
       const tezos = new TezosToolkit(rpcUrl)
       try {
         const balance = await tezos.rpc.getBalance(address)

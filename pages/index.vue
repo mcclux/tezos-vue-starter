@@ -6,12 +6,17 @@
       :dismiss-error-bar="dismissErrorBar"
       :wallet="wallet"
       :update-wallet="updateWallet"
+      :networks="networks"
+      :cnetwork="cnetwork"
+      :update-network="updateNetwork"
     />
     <QueryForm
       :errorui="errorui"
       :display-error-bar="displayErrorBar"
       :dismiss-error-bar="dismissErrorBar"
       :wallet="wallet"
+      :networks="networks"
+      :cnetwork="cnetwork"
     />
   </div>
 </template>
@@ -32,6 +37,24 @@ export default Vue.extend({
       errorui: {
         hasError: false,
         errorMessage: ''
+      },
+      networks: {
+        mainnet: {
+          networkname: 'Mainnet',
+          nodes: ['https://mainnet.api.tez.ie', 'https://mainnet.smartpy.io', 'https://rpc.tzbeta.net/', 'https://teznode.letzbake.com', 'https://mainnet-tezos.giganode.io']
+        },
+        hangzhounet: {
+          networkname: 'Hangzhounet',
+          nodes: ['https://hangzhounet.smartpy.io/', 'https://hangzhounet.api.tez.ie', 'https://testnet-tezos.giganode.io/']
+        },
+        ithacanet: {
+          networkname: 'Ithacanet',
+          nodes: ['https://ithacanet.ecadinfra.com', 'https://ithacanet.smartpy.io/', 'https://rpczero.tzbeta.net/']
+        }
+      },
+      cnetwork: {
+        networkname: 'Mainnet',
+        node: 'https://mainnet.api.tez.ie'
       }
     }
   },
@@ -47,6 +70,10 @@ export default Vue.extend({
     updateWallet (address:string, connected:boolean) {
       this.wallet.address = address
       this.wallet.isConnected = connected
+    },
+    updateNetwork (networkname:string, node:string) {
+      this.cnetwork.networkname = networkname
+      this.cnetwork.node = node
     }
   }
 })

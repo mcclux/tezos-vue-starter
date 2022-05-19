@@ -10,6 +10,11 @@
           </div>
           <div class="flex items-center">
             <div class="flex-shrink-0">
+              <SettingsButton
+                :networks="networks"
+                :cnetwork="cnetwork"
+                :update-network="updateNetwork"
+              />
               <WalletButton
                 :connectwallet="connectWallet"
                 :wallet="wallet"
@@ -60,11 +65,23 @@ export default Vue.extend({
     updateWallet: {
       type: Function,
       required: true
+    },
+    networks: {
+      type: Object,
+      required: true
+    },
+    cnetwork: {
+      type: Object,
+      required: true
+    },
+    updateNetwork: {
+      type: Function,
+      required: true
     }
   },
   methods: {
     async connectWallet () {
-      const tezos = new TezosToolkit('https://mainnet-tezos.giganode.io')
+      const tezos = new TezosToolkit(this.cnetwork.node)
       const bwallet = Vue.prototype.$beaconwallet
       tezos.setWalletProvider(bwallet)
       const activeAccount = await bwallet.client.getActiveAccount()

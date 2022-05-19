@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="absolute top-0 px-3 pt-1 right-4">
       <button
         v-if="!wallet.isConnected"
         class="text-white"
@@ -50,11 +50,11 @@
           />
         </svg>
       </button>
-    </div>
-    <div v-if="showDisconnectDiv" class="absolute rounded-md top-12 right-2 p-3 bg-gray-800 text-white text-xs">
-      <button @click="disconnectAndClose()">
-        Disconnect
-      </button>
+      <div v-if="showDisconnectDiv" class="absolute rounded-md top-12 px-2 py-4 bg-gray-800 text-white text-xs right-0">
+        <button @click="disconnectAndClose()">
+          Disconnect
+        </button>
+      </div>
     </div>
   </div>
 </template>
