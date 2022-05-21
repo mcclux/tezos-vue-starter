@@ -43,13 +43,13 @@ export default Vue.extend({
           networkname: 'Mainnet',
           nodes: ['https://mainnet.api.tez.ie', 'https://mainnet.smartpy.io', 'https://rpc.tzbeta.net/', 'https://teznode.letzbake.com', 'https://mainnet-tezos.giganode.io']
         },
-        hangzhounet: {
-          networkname: 'Hangzhounet',
-          nodes: ['https://hangzhounet.smartpy.io/', 'https://hangzhounet.api.tez.ie', 'https://testnet-tezos.giganode.io/']
+        jakartanet: {
+          networkname: 'Jakartanet',
+          nodes: ['https://rpc.jakartanet.teztnets.xyz']
         },
         ithacanet: {
           networkname: 'Ithacanet',
-          nodes: ['https://ithacanet.ecadinfra.com', 'https://ithacanet.smartpy.io/', 'https://rpczero.tzbeta.net/']
+          nodes: ['https://ithacanet.ecadinfra.com', 'https://ithacanet.smartpy.io/']
         }
       },
       cnetwork: {

@@ -43,7 +43,6 @@
 </template>
 
 <script lang="ts">
-// tz1a8QSHVHVkCmDYio6ptk7LAL7ZvywL6Vjo
 import Vue from 'vue'
 import { TezosToolkit } from '@taquito/taquito'
 export default Vue.extend({
