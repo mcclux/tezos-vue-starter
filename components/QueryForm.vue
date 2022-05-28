@@ -15,7 +15,7 @@
         </div>
         <div class="grid grid-cols-5 grid-flow-col gap-4 my-px">
           <div class="col-span-5 justify-self-end h-3">
-            <button v-show="wallet.address != tezosAddress" class="text-xs float-right underline" @click="fillAddressInput()">
+            <button v-show="wallet.address && wallet.address != tezosAddress" class="text-xs float-right underline" @click="fillAddressInput()">
               Here's Yours
             </button>
           </div>

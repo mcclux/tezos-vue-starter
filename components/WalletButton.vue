@@ -50,8 +50,12 @@
           />
         </svg>
       </button>
-      <div v-if="showDisconnectDiv" class="absolute rounded-md top-12 px-2 py-4 bg-gray-800 text-white text-xs right-0">
-        <button @click="disconnectAndClose()">
+      <div
+        v-if="showDisconnectDiv"
+        class="absolute rounded-md top-12 px-2 py-4 bg-gray-800 text-white text-xs right-0"
+        @click="disconnectAndClose()"
+      >
+        <button>
           Disconnect
         </button>
       </div>
